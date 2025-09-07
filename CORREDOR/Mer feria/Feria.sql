@@ -132,7 +132,7 @@ INSERT INTO Pabellon (id_pabellon, id_feria, id_tematica, nombre, capacidad) VAL
 
 INSERT INTO Empresa (id_empresa, nombre, ciudad) VALUES
 (31, 'TechSoft', 'Bogotá'),
-(32, 'HardSolutions', 'Medellín'),
+(32, 'HardSolutions', 'Medellín'), 
 (33, 'IoT Corp', 'Cali'),
 (34, 'AI Labs', 'Barranquilla'),
 (35, 'VR World', 'Cartagena'),
@@ -194,7 +194,7 @@ INSERT INTO TipoEntrada (id_tipo_entrada, tipo_entrada) VALUES
 (81, 'General'),
 (82, 'Estudiante'),
 (83, 'VIP'),
-(84, 'VIP'),
+(84, 'VIP'), 
 (85, 'Estudiante'),
 (86, 'General'),
 (87, 'Estudiante'),
@@ -313,3 +313,142 @@ WHERE id_visitante IN(
     FROM Registro
     WHERE online = 0
 );
+
+CREATE PROCEDURE ObtenerEmpresasPorCiudad
+    @Ciudad VARCHAR(100) 
+AS
+BEGIN
+    SELECT id_empresa, nombre, ciudad
+    FROM Empresa
+    WHERE ciudad = @Ciudad;
+END;
+GO
+
+EXEC ObtenerEmpresasPorCiudad @Ciudad = 'Medellin';
+
+CREATE PROCEDURE PersonaPorRangoEdad
+    @edad_min INT,
+    @edad_max INT
+AS
+BEGIN 
+    SELECT id_persona, nombre, edad, telefono
+    FROM Persona
+    WHERE edad BETWEEN @edad_min AND @edad_max;
+END;
+GO
+
+EXEC PersonaPorRangoEdad @edad_min = 20, @edad_max = 35;
+
+CREATE PROCEDURE TipoDeEntrada
+    @tipo_entrada VARCHAR(100)
+AS 
+BEGIN
+    SELECT id_tipo_entrada, tipo_entrada
+    FROM TipoEntrada
+    WHERE tipo_entrada = @tipo_entrada;
+END;
+GO
+
+EXEC TipoDeEntrada @tipo_entrada = 'Estudiante';
+
+CREATE TRIGGER insertEmpresa
+ON Empresa
+AFTER insert
+AS
+BEGIN
+    PRINT 'Se inserto una nueva empresa'
+END;
+GO
+
+INSERT INTO Empresa (id_empresa, nombre, ciudad)
+VALUES (41, 'HALTEC', 'Neiva');
+
+SELECT * FROM Empresa;
+
+CREATE TRIGGER CambioCapacidadPabellon
+ON Pabellon
+AFTER UPDATE
+AS 
+BEGIN
+    PRINT 'Se cambio la capacidad de un pabellon'
+END;
+GO
+
+UPDATE Pabellon SET capacidad = 15  WHERE id_pabellon = 22;
+SELECT * FROM Pabellon;
+
+
+CREATE TRIGGER EliminarUnProducto
+ON Producto
+AFTER DELETE
+AS 
+BEGIN
+    PRINT 'Se elimino un producto'
+END;
+GO
+
+DELETE FROM Producto WHERE id_producto = 101;
+SELECT * FROM Producto;
+INSERT INTO Producto (id_producto, id_stand, id_responsable, nombre) VALUES
+(101, 41, 61, 'Laptop Gamer X1');
+
+CREATE TABLE Log (
+    id_log INT IDENTITY PRIMARY KEY,
+    tabla_afectada SYSNAME,
+    fecha DATETIME DEFAULT GETDATE(),
+    datos_afectados VARCHAR(200)
+);
+
+
+DECLARE @table NVARCHAR(200), @sql NVARCHAR(MAX);
+
+DECLARE cur CURSOR FOR
+SELECT name 
+FROM sys.tables
+WHERE name <> 'Log'; -- Evitamos la tabla Log
+
+OPEN cur;
+FETCH NEXT FROM cur INTO @table; --1 tabla encontrada y la guarda en @table
+
+WHILE @@FETCH_STATUS = 0 --es exitoso si hay tabla
+BEGIN
+    SET @sql = '
+    CREATE TRIGGER trg_' + @table + '_Log 
+    ON ' + @table + ' --se aplica a todas las tablas
+    AFTER INSERT, UPDATE, DELETE
+    AS
+    BEGIN -- inserted contiene las filas nuevas y deleted contiene las filas eliminadas.
+        -- INSERT hay filas en inserted, pero no en deleted
+        IF EXISTS (SELECT 1 FROM inserted) AND NOT EXISTS (SELECT 1 FROM deleted)
+        BEGIN
+            INSERT INTO Log (tabla_afectada, datos_afectados)
+            VALUES (''' + @table + ''', ''Se insertó un registro'');
+        END;
+
+        -- UPDATE hay filas en ambos (primero se borran los viejos y se insertan los nuevos).
+        IF EXISTS (SELECT 1 FROM inserted) AND EXISTS (SELECT 1 FROM deleted)
+        BEGIN
+            INSERT INTO Log (tabla_afectada, datos_afectados)
+            VALUES (''' + @table + ''', ''Se actualizó un registro'');
+        END;
+
+        -- DELETE hay filas en deleted, pero no en inserted.
+        IF NOT EXISTS (SELECT 1 FROM inserted) AND EXISTS (SELECT 1 FROM deleted)
+        BEGIN
+            INSERT INTO Log (tabla_afectada, datos_afectados)
+            VALUES (''' + @table + ''', ''Se eliminó un registro'');
+        END;
+    END;
+    ';
+
+    EXEC sp_executesql @sql; --se ejecuta el sql dinamico
+
+    FETCH NEXT FROM cur INTO @table;
+END;
+
+CLOSE cur;
+DEALLOCATE cur; --se libera de memoria
+GO
+
+UPDATE Visitante SET nombre = 'Johan Salazar' WHERE id_visitante = 91;
+SELECT * FROM Log;
