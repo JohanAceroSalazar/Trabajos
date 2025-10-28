@@ -1,6 +1,29 @@
 public class Libro {
-    String titulo;
-    String autor;
-    Libro(String t, String a) { titulo = t; autor = a; }
-    void leer() { System.out.println("Leyendo: " + titulo); }
+    private String titulo;
+    private String autor;
+
+    public Libro(String titulo, String autor) {
+        this.titulo = titulo;
+        this.autor = autor;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public void leer() {
+        System.out.println("Leyendo \"" + titulo + "\" de " + autor + ".");
+    }
 }

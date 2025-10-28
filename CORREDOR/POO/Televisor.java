@@ -1,6 +1,29 @@
 public class Televisor {
-    String marca;
-    int pulgadas;
-    Televisor(String m, int p) { marca = m; pulgadas = p; }
-    void encender() { System.out.println("Televisor " + marca + " encendido."); }
+    private String marca;
+    private int pulgadas;
+
+    public Televisor(String marca, int pulgadas) {
+        this.marca = marca;
+        this.pulgadas = pulgadas;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public int getPulgadas() {
+        return pulgadas;
+    }
+
+    public void setPulgadas(int pulgadas) {
+        this.pulgadas = pulgadas;
+    }
+
+    public void encender() {
+        System.out.println("Televisor " + marca + " de " + pulgadas + " pulgadas encendido.");
+    }
 }

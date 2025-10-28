@@ -1,6 +1,29 @@
 public class Cuaderno {
-    int hojas;
-    String color;
-    Cuaderno(int h, String c) { hojas = h; color = c; }
-    void escribir() { System.out.println("Escribiendo en cuaderno " + color); }
+    private int hojas;
+    private String color;
+
+    public Cuaderno(int hojas, String color) {
+        this.hojas = hojas;
+        this.color = color;
+    }
+
+    public int getHojas() {
+        return hojas;
+    }
+
+    public void setHojas(int hojas) {
+        this.hojas = hojas;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void escribir() {
+        System.out.println("Escribiendo en el cuaderno " + color + " de " + hojas + " hojas.");
+    }
 }
