@@ -8,19 +8,19 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
-@Entity(name="user_role")
-public class User_Role {
+@Entity(name="course_category")
+public class Course_Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_User_role")
+    @Column(name = "id_Course_category")
     private int id;
 
     @ManyToOne
-    @JoinColumn(name="id_User")
-    private User user;
+    @JoinColumn(name = "id_category")
+    private Category category;
 
     @ManyToOne
-    @JoinColumn(name="id_role")
-    private Role role;
+    @JoinColumn(name = "id_course")
+    private Course course;
 }

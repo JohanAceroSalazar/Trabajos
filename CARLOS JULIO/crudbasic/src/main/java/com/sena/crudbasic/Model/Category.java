@@ -1,26 +1,26 @@
 package com.sena.crudbasic.Model;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 
-@Entity(name="user_role")
-public class User_Role {
+import jakarta.persistence.OneToMany;
+
+@Entity(name="category")
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_User_role")
+    @Column(name="id_category")
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name="id_User")
-    private User user;
+    @Column(name="name_category")
+    private String name_category;
 
-    @ManyToOne
-    @JoinColumn(name="id_role")
-    private Role role;
+    @OneToMany(mappedBy = "category")
+    private List<Course_Category> courses;
 }
