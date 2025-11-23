@@ -1,0 +1,28 @@
+C:\Users\johan\Documentos\.Net\MiProyecto\bin\Debug\net9.0\MiProyecto.exe
+C:\Users\johan\Documentos\.Net\MiProyecto\bin\Debug\net9.0\MiProyecto.deps.json
+C:\Users\johan\Documentos\.Net\MiProyecto\bin\Debug\net9.0\MiProyecto.runtimeconfig.json
+C:\Users\johan\Documentos\.Net\MiProyecto\bin\Debug\net9.0\MiProyecto.dll
+C:\Users\johan\Documentos\.Net\MiProyecto\bin\Debug\net9.0\MiProyecto.pdb
+C:\Users\johan\Documentos\.Net\MiProyecto\obj\Debug\net9.0\MiProyecto.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\johan\Documentos\.Net\MiProyecto\obj\Debug\net9.0\MiProyecto.AssemblyInfoInputs.cache
+C:\Users\johan\Documentos\.Net\MiProyecto\obj\Debug\net9.0\MiProyecto.AssemblyInfo.cs
+C:\Users\johan\Documentos\.Net\MiProyecto\obj\Debug\net9.0\MiProyecto.csproj.CoreCompileInputs.cache
+C:\Users\johan\Documentos\.Net\MiProyecto\obj\Debug\net9.0\MiProyecto.dll
+C:\Users\johan\Documentos\.Net\MiProyecto\obj\Debug\net9.0\refint\MiProyecto.dll
+C:\Users\johan\Documentos\.Net\MiProyecto\obj\Debug\net9.0\MiProyecto.pdb
+C:\Users\johan\Documentos\.Net\MiProyecto\obj\Debug\net9.0\MiProyecto.genruntimeconfig.cache
+C:\Users\johan\Documentos\.Net\MiProyecto\obj\Debug\net9.0\ref\MiProyecto.dll
+C:\Users\johan\Documentos\Clases 4 lenguajes\C#\MiProyecto\bin\Debug\net9.0\MiProyecto.exe
+C:\Users\johan\Documentos\Clases 4 lenguajes\C#\MiProyecto\bin\Debug\net9.0\MiProyecto.deps.json
+C:\Users\johan\Documentos\Clases 4 lenguajes\C#\MiProyecto\bin\Debug\net9.0\MiProyecto.runtimeconfig.json
+C:\Users\johan\Documentos\Clases 4 lenguajes\C#\MiProyecto\bin\Debug\net9.0\MiProyecto.dll
+C:\Users\johan\Documentos\Clases 4 lenguajes\C#\MiProyecto\bin\Debug\net9.0\MiProyecto.pdb
+C:\Users\johan\Documentos\Clases 4 lenguajes\C#\MiProyecto\obj\Debug\net9.0\MiProyecto.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\johan\Documentos\Clases 4 lenguajes\C#\MiProyecto\obj\Debug\net9.0\MiProyecto.AssemblyInfoInputs.cache
+C:\Users\johan\Documentos\Clases 4 lenguajes\C#\MiProyecto\obj\Debug\net9.0\MiProyecto.AssemblyInfo.cs
+C:\Users\johan\Documentos\Clases 4 lenguajes\C#\MiProyecto\obj\Debug\net9.0\MiProyecto.csproj.CoreCompileInputs.cache
+C:\Users\johan\Documentos\Clases 4 lenguajes\C#\MiProyecto\obj\Debug\net9.0\MiProyecto.dll
+C:\Users\johan\Documentos\Clases 4 lenguajes\C#\MiProyecto\obj\Debug\net9.0\refint\MiProyecto.dll
+C:\Users\johan\Documentos\Clases 4 lenguajes\C#\MiProyecto\obj\Debug\net9.0\MiProyecto.pdb
+C:\Users\johan\Documentos\Clases 4 lenguajes\C#\MiProyecto\obj\Debug\net9.0\MiProyecto.genruntimeconfig.cache
+C:\Users\johan\Documentos\Clases 4 lenguajes\C#\MiProyecto\obj\Debug\net9.0\ref\MiProyecto.dll

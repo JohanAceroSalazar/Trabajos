@@ -23,4 +23,35 @@ public class Category {
 
     @OneToMany(mappedBy = "category")
     private List<Course_Category> courses;
+
+    public Category() {
+    }
+
+    public Category(String name_category) {
+        this.name_category = name_category;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName_category() {
+        return name_category;
+    }
+
+    public void setName_category(String name_category) {
+        this.name_category = name_category;
+    }
+
+    public List<Course_Category> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<Course_Category> courses) {
+        this.courses = courses;
+    }
 }

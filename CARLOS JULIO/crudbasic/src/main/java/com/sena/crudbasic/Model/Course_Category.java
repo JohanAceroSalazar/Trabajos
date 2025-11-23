@@ -23,4 +23,38 @@ public class Course_Category {
     @ManyToOne
     @JoinColumn(name = "id_course")
     private Course course;
+
+    // Constructor vacío (obligatorio para JPA)
+    public Course_Category(){
+    }
+
+    public Course_Category(int id, Category category, Course course) {
+        this.id = id;
+        this.category = category;
+        this.course = course;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
 }
