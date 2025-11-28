@@ -1,8 +1,5 @@
 package com.sena.crudbasic.Model;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,10 +17,31 @@ public class Payment {
     private int id;
 
     @Column(name = "amount")
-    private BigDecimal amount;
+    private double amount;
 
-    @Column(name = "payment_date")
-    private LocalDate payment_date;
+    public Payment() {
+    }
+
+    public Payment(int id, double amount) {
+        this.id = id;
+        this.amount = amount;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
 
     @ManyToOne
     @JoinColumn(name = "id_enrollment")

@@ -10,25 +10,25 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.sena.crudbasic.dto.CourseDto;
 import com.sena.crudbasic.Model.Course;
 import com.sena.crudbasic.service.CourseService;
 
-
 @RestController
+@RequestMapping("/courses")
 public class CourseController {
-	
+
 	@Autowired
 	private CourseService service;
-	
+
 	@GetMapping("")
 	public ResponseEntity<Object>findAll(){
 	return new ResponseEntity<Object>(
 			service.findAll(),HttpStatus.OK);
 	}
-	
+
 	@PostMapping("")
 	public ResponseEntity<Object>save(
 			@RequestBody CourseDto c){
@@ -36,8 +36,7 @@ public class CourseController {
 		return new ResponseEntity<Object>
 		("Se guardó",HttpStatus.OK);
 	}
-	//traer la información por ID
-	
+
 	@GetMapping("{id}")
 	public ResponseEntity<Object>findById( 
 			@PathVariable int id){
@@ -46,6 +45,7 @@ public class CourseController {
 		(course,HttpStatus.OK);
 		
 	}
+
 	@GetMapping("filterbytitle/{title}")
 	public ResponseEntity<Object>filterByTitle( 
 			@PathVariable String title){
@@ -54,6 +54,7 @@ public class CourseController {
 	(course,HttpStatus.OK);
 	
 	}
+
 	@DeleteMapping("{id}")
 	public ResponseEntity<Object>delete(
 			@PathVariable int id){

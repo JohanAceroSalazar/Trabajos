@@ -27,7 +27,8 @@ public class Category {
     public Category() {
     }
 
-    public Category(String name_category) {
+    public Category(int id, String name_category) {
+        this.id = id;
         this.name_category = name_category;
     }
 

@@ -1,8 +1,6 @@
 package com.sena.crudbasic.Model;
 
-import java.math.BigDecimal;
 import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,9 +19,6 @@ public class Course {
     @Column(name="title")
     private String title;
 
-    @Column(name="price")
-    private BigDecimal price;
-
     
     @OneToMany(mappedBy = "course")
     private List<Course_Category> categories;
@@ -37,10 +32,9 @@ public class Course {
     public Course(){
     }
 
-    public Course(int id, String title, BigDecimal price) {
+    public Course(int id, String title) {
         this.id = id;
         this.title = title;
-        this.price = price;
     }
 
     public int getId() {
@@ -57,13 +51,5 @@ public class Course {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
     }
 }

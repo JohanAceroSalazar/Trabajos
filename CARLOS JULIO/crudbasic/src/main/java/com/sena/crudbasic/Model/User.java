@@ -12,10 +12,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
-@Entity(name="[User]")
+@Entity(name="users")
 public class User {
 
-    //anotación bean para id de la entidad
 	@Id
 	//anotación para autoincremental
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,4 +31,28 @@ public class User {
 	@OneToOne
 	@JoinColumn(name = "id_student")  //FK en la tabla User
 	private Student student;
+
+	public User() {
+	}
+
+	public User(int id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 }

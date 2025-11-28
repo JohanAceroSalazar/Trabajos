@@ -23,4 +23,37 @@ public class Instructor_Course {
     @ManyToOne
     @JoinColumn(name = "id_course")
     private Course course;
+
+    public Instructor_Course() {
+    }
+
+    public Instructor_Course(int id, Instructor instructor, Course course) {
+        this.id = id;
+        this.instructor = instructor;
+        this.course = course;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Instructor getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
 }

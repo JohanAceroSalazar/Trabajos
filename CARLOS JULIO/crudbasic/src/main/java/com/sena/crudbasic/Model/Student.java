@@ -21,12 +21,33 @@ public class Student {
     @Column(name = "full_name")
     private String full_name;
 
-    @Column(name = "age")
-    private int age;
-
     @OneToMany(mappedBy = "student")
     private List<Enrollment> enrollments;
 
     @OneToOne(mappedBy = "student")
     private User user;
+
+    public Student() {
+    }
+
+    public Student(int id, String full_name) {
+        this.id = id;
+        this.full_name = full_name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getFull_name() {
+        return full_name;
+    }
+
+    public void setFull_name(String full_name) {
+        this.full_name = full_name;
+    }
 }

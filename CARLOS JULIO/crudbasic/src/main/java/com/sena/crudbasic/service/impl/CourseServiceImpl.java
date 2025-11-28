@@ -15,11 +15,6 @@ implements CourseService{
 	
 	@Autowired
 	private CourseRepository repo;
-	/*
-	public CourseServiceImpl(CourseRepository repo) {
-		this.repo=repo;
-	}
-	*/
 
 	@Override
 	public List<Course> findAll() {
@@ -29,22 +24,19 @@ implements CourseService{
 
 	@Override
 	public Course findById(int id) {
-		// TODO Auto-generated method stub
 		return repo.findById(id).orElse(null);
 	}
 
 	@Override
 	public List<Course> filterByTitle(String title) {
-		// TODO Auto-generated method stub
 		return repo.filterByTitle(title);
 	}
 	//conversor del DTO al model
 	public Course dtoToModel(CourseDto courseDto) {
-		return new Course 
+		return new Course
 				(
 				courseDto.getId(),
-				courseDto.getTitle(),
-				null
+				courseDto.getTitle()
 		);
 	}
 	public CourseDto modelToDto(Course course) {
@@ -59,7 +51,7 @@ implements CourseService{
 	public String save(CourseDto courseDto) {
 		Course course=dtoToModel(courseDto);
 		repo.save(course);
-		return null;
+		return "Curso guardado exitosamente";
 	}
 
 	@Override
