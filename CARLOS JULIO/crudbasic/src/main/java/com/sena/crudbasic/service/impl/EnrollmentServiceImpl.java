@@ -35,14 +35,18 @@ implements EnrollmentService{
 		return new Enrollment
 				(
 				enrollmentDto.getId(),
-				enrollmentDto.getEnrollment_date()
+				enrollmentDto.getEnrollment_date(),
+				enrollmentDto.getCourse(),
+				enrollmentDto.getStudent()
 		);
 	}
 
 	public EnrollmentDto modelToDto(Enrollment enrollment) {
 		return new EnrollmentDto(
 				enrollment.getId(),
-				enrollment.getEnrollment_date()
+				enrollment.getEnrollment_date(),
+				enrollment.getCourse(),
+				enrollment.getStudent()
 				);
 	}
 

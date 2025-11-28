@@ -4,14 +4,13 @@ public class CourseDto {
 
 	private int id;
 	private String title;
-	//private List<Student> students;
 
-	public CourseDto(int id, String title) {
-		super();
+    public CourseDto(int id, String title) {
 		this.id = id;
 		this.title = title;
 	}
-    public int getId() {
+
+	public int getId() {
 		return id;
 	}
 

@@ -34,14 +34,16 @@ public class PaymentServiceImpl implements PaymentService {
     public Payment dtoToModel(PaymentDto paymentDto){
         return new Payment(
             paymentDto.getId(),
-            paymentDto.getAmount()
+            paymentDto.getAmount(),
+            paymentDto.getEnrollment()
         );
     }
 
     public Payment modelToDto(Payment payment){
         return new Payment(
             payment.getId(),
-            payment.getAmount()
+            payment.getAmount(),
+            payment.getEnrollment()
         );
     }
 

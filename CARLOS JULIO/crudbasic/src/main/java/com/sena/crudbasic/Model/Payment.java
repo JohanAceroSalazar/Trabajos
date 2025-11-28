@@ -22,9 +22,10 @@ public class Payment {
     public Payment() {
     }
 
-    public Payment(int id, double amount) {
+    public Payment(int id, double amount, Enrollment enrollment) {
         this.id = id;
         this.amount = amount;
+        this.enrollment = enrollment;
     }
 
     public int getId() {
@@ -41,6 +42,15 @@ public class Payment {
 
     public void setAmount(double amount) {
         this.amount = amount;
+    }
+
+    public Enrollment getEnrollment() {
+        return enrollment;
+    }
+
+
+    public void setEnrollment(Enrollment enrollment) {
+        this.enrollment = enrollment;
     }
 
     @ManyToOne

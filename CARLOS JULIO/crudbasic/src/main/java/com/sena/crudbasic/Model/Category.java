@@ -28,6 +28,7 @@ public class Category {
     }
 
     public Category(int id, String name_category) {
+        super();
         this.id = id;
         this.name_category = name_category;
     }
@@ -46,13 +47,5 @@ public class Category {
 
     public void setName_category(String name_category) {
         this.name_category = name_category;
-    }
-
-    public List<Course_Category> getCourses() {
-        return courses;
-    }
-
-    public void setCourses(List<Course_Category> courses) {
-        this.courses = courses;
     }
 }

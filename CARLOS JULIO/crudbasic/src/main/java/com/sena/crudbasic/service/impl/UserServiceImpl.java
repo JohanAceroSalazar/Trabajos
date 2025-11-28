@@ -33,14 +33,16 @@ public class UserServiceImpl implements UserService{
     public User dtoToModel(UserDto UserDto){
         return new User(
         UserDto.getId(),
-        UserDto.getName()
+        UserDto.getName(),
+        UserDto.getStudent()
         );
     }
 
     public User modelToDto(User User){
         return new User(
         User.getId(),
-        User.getName()
+        User.getName(),
+        User.getStudent()
         );
     }
 

@@ -24,10 +24,13 @@ public class Enrollment {
     public Enrollment() {
     }
 
-    public Enrollment(int id, String enrollment_date) {
+    public Enrollment(int id, String enrollment_date, Course course, Student student) {
         this.id = id;
         this.enrollment_date = enrollment_date;
+        this.course = course;
+        this.student = student;
     }
+
 
     public int getId() {
         return id;
@@ -43,6 +46,22 @@ public class Enrollment {
 
     public void setEnrollment_date(String enrollment_date) {
         this.enrollment_date = enrollment_date;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
     @ManyToOne

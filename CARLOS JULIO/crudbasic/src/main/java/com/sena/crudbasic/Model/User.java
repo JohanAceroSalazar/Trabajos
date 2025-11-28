@@ -35,9 +35,10 @@ public class User {
 	public User() {
 	}
 
-	public User(int id, String name) {
+	public User(int id, String name, Student student) {
 		this.id = id;
 		this.name = name;
+		this.student = student;
 	}
 
 	public int getId() {
@@ -54,5 +55,13 @@ public class User {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Student getStudent() {
+		return student;
+	}
+
+	public void setStudent(Student student) {
+		this.student = student;
 	}
 }
