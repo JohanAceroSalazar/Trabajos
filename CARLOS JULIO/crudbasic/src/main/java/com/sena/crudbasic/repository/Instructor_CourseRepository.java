@@ -1,23 +1,21 @@
 package com.sena.crudbasic.repository;
 
 import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-import com.sena.crudbasic.Model.Category;
+import com.sena.crudbasic.Model.Instructor_Course;
 
 @Repository
-public interface CategoryRepository 
-extends JpaRepository<Category, Integer> {
+public interface Instructor_CourseRepository extends JpaRepository<Instructor_Course, Integer>{
 
     @Query(""
 			+ "SELECT "
-			+ "c "
+			+ "i "
 			+ "FROM "
-			+ "category c "
+			+ "instructor_course i "
 			+ "WHERE "
-			+ "c.name_category like %?1%"
+			+ "i.id = ?1"
 			)
-	public List<Category>filterByNameCategories(String name_category);
+	public List<Instructor_Course>filterById(int id);
 }

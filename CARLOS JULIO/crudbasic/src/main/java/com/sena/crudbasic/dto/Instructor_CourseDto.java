@@ -1,35 +1,40 @@
 package com.sena.crudbasic.dto;
 
-import com.sena.crudbasic.Model.Category;
 import com.sena.crudbasic.Model.Course;
+import com.sena.crudbasic.Model.Instructor;
 
-public class Course_CategoryDto {
+public class Instructor_CourseDto {
 
     private int id;
-    private Category category;
+    private Instructor instructor;
     private Course course;
 
-    public Course_CategoryDto(int id, Category category, Course course) {
+    public Instructor_CourseDto(int id, Instructor instructor, Course course) {
         this.id = id;
-        this.category = category;
+        this.instructor = instructor;
         this.course = course;
     }
 
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
-    public Category getCategory() {
-        return category;
+
+    public Instructor getInstructor() {
+        return instructor;
     }
-    public void setCategory(Category category) {
-        this.category = category;
+
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
     }
+
     public Course getCourse() {
         return course;
     }
+
     public void setCourse(Course course) {
         this.course = course;
     }
