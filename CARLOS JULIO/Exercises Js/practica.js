@@ -60,3 +60,67 @@ formulario.addEventListener("submit", function(event){
         alert("Registro exitoso")
     }
 });
+
+function calcular(){
+    let num1 = parseFloat(document.getElementById("numero1").value);
+    let num2 = parseFloat(document.getElementById("numero2").value);
+
+    let operacion = document.getElementById("operacion").value;
+    let resultado;
+
+    if(operacion === "+"){
+        resultado = num1 + num2;
+        }
+        else if(operacion === "-"){
+            resultado = num1 - num2;
+        }
+        else if(operacion === "*"){
+            resultado = num1 * num2;
+        }
+        else if(operacion === "/"){
+            resultado = num1 / num2;
+        }
+
+        document.getElementById("resultadoCalc").textContent = "Resultado: " + resultado;
+}
+
+function agregar2(){
+
+    let texto = document.getElementById("tareas").value;
+    let li = document.createElement("li");
+
+    li.textContent = texto + " ";
+
+    let botonEliminar = document.createElement("button");
+
+    botonEliminar.textContent = "Eliminar";
+    botonEliminar.addEventListener("click", function(){
+        li.remove();
+    });
+
+    li.appendChild(botonEliminar);
+    document.getElementById("listas").appendChild(li);
+}
+
+let segundos = 0;
+let intervalo;
+
+function iniciar(){
+    intervalo = setInterval(function(){
+        segundos++;
+
+        document.getElementById("tiempo").textContent = segundos;
+    },1000);
+}
+
+function detener(){
+    clearInterval(intervalo);
+}
+
+function reiniciar(){
+    clearInterval(intervalo);
+    segundos = 0;
+
+    document.getElementById("tiempo").textContent = segundos;
+
+}
