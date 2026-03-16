@@ -1,0 +1,85 @@
+.navbar{
+    position: sticky;
+    top: 0;
+    background: #2b7cff;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.navbar a{
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+.navbar a:hover{
+    text-decoration: underline;
+}
+
+.seccion{
+    display: none;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 20px;
+}
+
+h2{
+    color: #333;
+}
+
+.seccion{
+    text-align: center;
+    background: white;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.1);
+}
+
+input{
+    padding: 8px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button{
+    padding: 8px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background: #2b7cff;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover{
+    background: #1a5ed8;
+}
+
+ul{
+    margin-top: 10px;
+}
+
+.mensaje{
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.exito{
+    background: #d4edda;
+    color: #155724;
+}
+
+.error{
+    background: #f8d7da;
+    color: #721c24;
+}

@@ -4,19 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1>Ejercicios JavaScript</h1>
 
-    <div class="ejercicio">
+    <nav class="navbar">
+        <button onclick="mostrarSeccion('e1')">Ejercicio 1</button>
+        <button onclick="mostrarSeccion('e2')">Ejercicio 2</button>
+        <button onclick="mostrarSeccion('e3')">Ejercicio 3</button>
+        <button onclick="mostrarSeccion('e4')">Ejercicio 4</button>
+        <button onclick="mostrarSeccion('e5')">Ejercicio 5</button>
+        <button onclick="mostrarSeccion('e6')">Ejercicio 6</button>
+        <button onclick="mostrarSeccion('e7')">Ejercicio 7</button>
+        <button onclick="mostrarSeccion('e8')">Ejercicio 8</button>
+        <button onclick="mostrarSeccion('e9')">Ejercicio 9</button>
+    </nav>
+
+    <div class="ejercicio" id="e1">
         <h2>Ejercicio 1: Mostrar texto en pantalla</h2>
 
     <button onclick="mostrarMensaje()">Mostrar mensaje</button>
         <p id="Mensaje"></p>
     </div>
 
-    <div class="ejercicio">
+    <div class="ejercicio" id="e2">
         <h2>Ejercicio 2: Calculadora de suma</h2>
         
         <input type="number" id="num1" placeholder="Número 1">
@@ -26,7 +37,7 @@
         <p id="resultado"></p>
     </div>
 
-    <div class="ejercicio">
+    <div class="ejercicio" id="e3">
         <h2>Ejercicio 3: Cambiar color de fondo</h2>
 
         <button onclick="colorRojo()">Rojo</button>
@@ -34,14 +45,14 @@
         <button onclick="colorVerde()">Verde</button>
     </div>
 
-    <div class="ejercicio">
+    <div class="ejercicio" id="e4">
         <h2>Ejercicio 4: Contador de clics</h2>
 
         <p id="textoContador">Clics: 0</p>
         <button id="contador">Aumentar</button>
     </div>
 
-    <div class="ejercicio">
+    <div class="ejercicio" id="e5">
         <h2>Ejercicio 5: Lista dinámica</h2>
 
         <input type="text" id="tarea" placeholder="Escribir tarea">
@@ -49,7 +60,7 @@
         <ul id="lista"></ul>
     </div>
 
-    <div class="ejercicio">
+    <div class="ejercicio" id="e6">
 
         <h2>Ejercicio 6: Validación de formulario</h2>
         <form id="formulario">
@@ -71,7 +82,7 @@
         </form>
     </div>
 
-    <div class="ejercicio">
+    <div class="ejercicio" id="e7">
 
         <h2>Ejercicio 7: Calculadora básica</h2>
 
@@ -89,7 +100,7 @@
         <p id="resultadoCalc"></p>
     </div>
 
-    <div class="ejercicio">
+    <div class="ejercicio" id="e8">
 
         <h2>Ejercicio 8: Eliminación de elementos de lista</h2>
 
@@ -98,7 +109,7 @@
         <ul id="listas"></ul>
     </div>
 
-    <div class="ejercicio">
+    <div class="ejercicio" id="e9">
 
         <h2>Ejercicio 9: Temporizador</h2>
 
@@ -108,6 +119,15 @@
         <button onclick="reiniciar()">Reiniciar</button>
     </div>
 
-    <script src="practica.js"></script>
+    <script src="js/mostrarMensaje.js"></script>
+    <script src="js/calculadoraSuma.js"></script>
+    <script src="js/cambioFondo.js"></script>
+    <script src="js/calculadora.js"></script>
+    <script src="js/contador.js"></script>
+    <script src="js/eliminacionLista.js"></script>
+    <script src="js/listaDinamica.js"></script>
+    <script src="js/temporizador.js"></script>
+    <script src="js/formulario.js"></script>
+    <script src="js/navegacion.js"></script>
 </body>
 </html>

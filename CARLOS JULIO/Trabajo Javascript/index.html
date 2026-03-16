@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabajo Javascript</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <button onclick="mostrarSeccion('ej1')">Ejercicio 1</button>
+        <button onclick="mostrarSeccion('ej2')">Ejercicio 2</button>
+        <button onclick="mostrarSeccion('ej3')">Ejercicio 3</button>
+        <button onclick="mostrarSeccion('ej4')">Ejercicio 4</button>
+        <button onclick="mostrarSeccion('ej5')">Ejercicio 5</button>
+        <button onclick="mostrarSeccion('ej6')">Ejercicio 6</button>
+    </nav>
+
+    <div class="seccion" id="ej1">
+    <h1>Problema 1: Sistema de cuentas bancarias</h1>
+
+    <input type="text" id="cliente" placeholder="Nombre del cliente">
+    <input type="number" id="saldo" placeholder="Saldo inicial">
+
+    <button onclick="crearCuentas()">Crear cuenta</button>
+
+    <br><br>
+
+    <input type="text" id="clienteOperacion" placeholder="Cliente">
+    <input type="number" id="monto" placeholder="Monto">
+
+    <button onclick="ingresar()">Ingresar</button>
+    <button onclick="retirar()">Retirar</button>
+    <button onclick="consultarSaldo()">Consultar Saldo</button>
+
+    <p id="mensajeBanco"></p>
+    </div>
+
+    <div class="seccion" id="ej2">
+        <h1>Problema 2: Inventario de una tienda</h1>
+
+        <input type="text" id="nombreProducto" placeholder="Nombre Producto">
+        <input type="number" id="precio" placeholder="Precio">
+        <input type="number" id="cantidad" placeholder="Cantidad disponible">
+
+        <button onclick="agregarProducto()">Agregar Producto</button>
+        <button onclick="calcularInventario()">Valor Total del inventario</button>
+
+        <br><br>
+
+        <input type="text" id="buscarProducto" placeholder="Nombre del producto">
+        <button onclick="consultarProducto()">Consultar producto</button>
+
+        <ul id="listaProductos"></ul>
+        <p id="totalInventario"></p>
+        <p id="mensajeInventario"></p>
+    </div>
+
+    <div class="seccion" id="ej3">
+        <h1>Problema 3: Registro de estudiantes</h1>
+
+        <input type="text" id="nombreEstudiante" placeholder="Nombre estudiante">
+        <input type="number" id="edad" placeholder="Edad">
+        <input type="date" id="fecha" placeholder="Fecha nacimiento">
+        <input type="number" id="nota" placeholder="Nota final de Ingles">
+
+        <button onclick="registrarEstudiantes()">Registrar estudiante</button>
+
+        <br><br>
+        
+        <h3>Lista de estudiantes</h3>
+        <ul id="listaEstudiantes"></ul>
+        <p id="mensajeRegistro"></p>
+    </div>
+
+    <div class="seccion" id="ej4">
+        <h1>Problema 4: Carrito de compras en una tienda en línea</h1>
+
+        <input type="text" id="nombreProduct" placeholder="Nombre del producto">
+        <input type="number" id="precioProducto" placeholder="Precio">
+
+        <button onclick="agregarCarrito()">Agregar al carrito</button>
+
+        <br><br>
+
+        <p id="mensajeCarrito"></p>
+
+        <h3>Productos en el carrito</h3>
+
+        <ul id="listaCarrito"></ul>
+        <p id="totalCompra">Total: $0</p>
+    </div>
+
+    <div class="seccion" id="ej5">
+        <h1>Problema 5: Control de vehículos</h1>
+
+        <input type="text" id="nombreVehiculo" placeholder="Nombre del vehiculo">
+        <button onclick="registrarVehiculo()">Registrar vehiculo</button>
+
+        <br><br>
+
+        <input type="text" id="vehiculoOperacion" placeholder="Vehículo">
+        <input type="number" id="velocidad" placeholder="Velocidad">
+
+        <button onclick="aumentarVelocidad()">Aumentar Velocidad</button>
+        <button onclick="disminuirVelocidad()">Disminuir Velocidad</button>
+
+        <br><br>
+
+        <button onclick="mostrarEstado()">Mostrar Estado</button>
+        <ul id="listaVehiculos"></ul>
+        <p id="mensajeVehiculo"></p>
+    </div>
+
+    <div class="seccion" id="ej6">
+        <h1>Problema 6: Sistema de biblioteca</h1>
+
+        <input type="text" id="tituloLibro" placeholder="Título del libro">
+        <input type="text" id="autorLibro" placeholder="Autor">
+
+        <button onclick="registrarLibro()">Registrar libro</button>
+
+        <br><br>
+
+        <input type="text" id="libroOperacion" placeholder="Título del libro">
+
+        <button onclick="prestarLibro()">Prestar libro</button>
+        <button onclick="devolverLibro()">Devolver libro</button>
+
+        <br><br>
+
+        <button onclick="mostrarLibros()">Mostrar libros</button>
+
+        <ul id="listaLibros"></ul>
+        <p id="mensajeBiblioteca"></p>
+    </div>
+
+    <script src="js/exercise1.js"></script>
+    <script src="js/exercise2.js"></script>
+    <script src="js/exercise3.js"></script>
+    <script src="js/exercise4.js"></script>
+    <script src="js/exercise5.js"></script>
+    <script src="js/exercise6.js"></script>
+    <script src="js/navegacion.js"></script>
+
+</body>
+</html>
