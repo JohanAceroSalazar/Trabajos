@@ -25,16 +25,27 @@ function registrarEstudiantes(){
 
     estudiantes.push(estudiante);
 
-    let li = document.createElement("li");
-    li.textContent = nombre +
-    " | Edad: " + edad + 
-    " | Fecha de nacimiento: " + fechaNacimiento + 
-    " | Nota: " + nota + 
-    " | Estado: " + estado;
+    mensaje.textContent = "Estudiante " + nombre + " registrado";
+}
 
-    document.getElementById("listaEstudiantes").appendChild(li);
+function mostrarEstudiantes(){
 
-    mensaje.textContent =
-    "Estudiante registrado: " + nombre + 
-    " | Estado del curso: " + estado;
+    let lista = document.getElementById("listaEstudiantes");
+
+    lista.innerHTML = "";
+
+    for(let estudiante of estudiantes){
+
+        let li = document.createElement("li");
+
+        li.textContent =
+        estudiante.nombre +
+        " | Edad: " + estudiante.edad +
+        " | Fecha de nacimiento: " + estudiante.fechaNacimiento +
+        " | Nota: " + estudiante.nota +
+        " | Estado: " + estudiante.estado;
+
+        lista.appendChild(li);
+    }
+
 }
