@@ -7,7 +7,7 @@ async function getAllCarts() {
 
     data.carts.forEach(cart => {
 
-        cart.products.forEach(product => {
+        (cart.products || []).forEach(product => {
 
             let row = document.createElement("tr");
 
@@ -39,7 +39,7 @@ async function getByIdCart() {
     var container = document.getElementById("cartsContainer");
     container.innerHTML = "";
 
-    cart.products.forEach(product => {
+    (cart.products || []).forEach(product => {
 
         let row = document.createElement("tr");
 
