@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBar } from 'react-native';
+import { Platform, StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -29,7 +29,28 @@ function HomeStack() {
 function BottomMenu() {
   // Bottom Tabs es el menu de abajo para cambiar entre secciones principales.
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        tabBarActiveTintColor: '#2f7d63',
+        tabBarInactiveTintColor: '#6f7f79',
+        tabBarLabelStyle: {
+          fontSize: 13,
+          fontWeight: '700',
+          paddingBottom: Platform.OS === 'ios' ? 4 : 6,
+        },
+        tabBarStyle: {
+          backgroundColor: '#ffffff',
+          borderTopColor: '#d9e4df',
+          borderTopWidth: 1,
+          height: Platform.OS === 'ios' ? 76 : 64,
+          paddingTop: 8,
+          paddingBottom: Platform.OS === 'ios' ? 18 : 8,
+        },
+        tabBarIconStyle: {
+          display: 'none',
+        },
+      }}
+    >
       <Tab.Screen name="Inicio" component={HomeStack} options={{ headerShown: false }} />
       <Tab.Screen name="Calculadora" component={CalculatorScreen} />
       <Tab.Screen name="Lista" component={LoadingListScreen} />
