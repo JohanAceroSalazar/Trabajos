@@ -11,6 +11,9 @@ const styles = StyleSheet.create({
     padding: 18,
     gap: 14,
   },
+  keyboardContainer: {
+    flex: 1,
+  },
   listScreen: {
     flex: 1,
     padding: 18,
@@ -95,6 +98,28 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     overflow: 'hidden',
     backgroundColor: '#ffffff',
+  },
+  selectButton: {
+    backgroundColor: '#ffffff',
+    borderWidth: 1,
+    borderColor: '#c8d6d0',
+    borderRadius: 8,
+    padding: 14,
+  },
+  selectButtonText: {
+    color: '#17332b',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  optionButton: {
+    backgroundColor: '#f4f6f5',
+    borderRadius: 8,
+    padding: 13,
+  },
+  optionText: {
+    color: '#17332b',
+    fontSize: 16,
+    fontWeight: '600',
   },
   input: {
     backgroundColor: '#ffffff',

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Pressable, SafeAreaView, Text, TextInput, View } from 'react-native';
+import { KeyboardAvoidingView, Platform, Pressable, ScrollView, Text, TextInput, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from '../styles/globalStyles';
 
 function CalculatorScreen() {
@@ -34,43 +35,49 @@ function CalculatorScreen() {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <View style={styles.container}>
-        <Text style={styles.title}>Calculadora basica</Text>
+      {/* KeyboardAvoidingView sube el contenido cuando aparece el teclado, especialmente en iOS. */}
+      <KeyboardAvoidingView
+        style={styles.keyboardContainer}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      >
+        <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
+          <Text style={styles.title}>Calculadora basica</Text>
 
-        {/* onChangeText actualiza el estado cada vez que el usuario escribe. */}
-        <TextInput
-          style={styles.input}
-          placeholder="Primer numero"
-          keyboardType="numeric"
-          value={numero1}
-          onChangeText={setNumero1}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Segundo numero"
-          keyboardType="numeric"
-          value={numero2}
-          onChangeText={setNumero2}
-        />
+          {/* onChangeText actualiza el estado cada vez que el usuario escribe. */}
+          <TextInput
+            style={styles.input}
+            placeholder="Primer numero"
+            keyboardType="numeric"
+            value={numero1}
+            onChangeText={setNumero1}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Segundo numero"
+            keyboardType="numeric"
+            value={numero2}
+            onChangeText={setNumero2}
+          />
 
-        <View style={styles.grid}>
-          {/* Cada boton manda el nombre de la operacion a la funcion calcular. */}
-          <Pressable style={styles.calcButton} onPress={() => calcular('sumar')}>
-            <Text style={styles.buttonText}>Sumar</Text>
-          </Pressable>
-          <Pressable style={styles.calcButton} onPress={() => calcular('restar')}>
-            <Text style={styles.buttonText}>Restar</Text>
-          </Pressable>
-          <Pressable style={styles.calcButton} onPress={() => calcular('multiplicar')}>
-            <Text style={styles.buttonText}>Multiplicar</Text>
-          </Pressable>
-          <Pressable style={styles.calcButton} onPress={() => calcular('dividir')}>
-            <Text style={styles.buttonText}>Dividir</Text>
-          </Pressable>
-        </View>
+          <View style={styles.grid}>
+            {/* Cada boton manda el nombre de la operacion a la funcion calcular. */}
+            <Pressable style={styles.calcButton} onPress={() => calcular('sumar')}>
+              <Text style={styles.buttonText}>Sumar</Text>
+            </Pressable>
+            <Pressable style={styles.calcButton} onPress={() => calcular('restar')}>
+              <Text style={styles.buttonText}>Restar</Text>
+            </Pressable>
+            <Pressable style={styles.calcButton} onPress={() => calcular('multiplicar')}>
+              <Text style={styles.buttonText}>Multiplicar</Text>
+            </Pressable>
+            <Pressable style={styles.calcButton} onPress={() => calcular('dividir')}>
+              <Text style={styles.buttonText}>Dividir</Text>
+            </Pressable>
+          </View>
 
-        <Text style={styles.result}>Resultado: {resultado}</Text>
-      </View>
+          <Text style={styles.result}>Resultado: {resultado}</Text>
+        </ScrollView>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }

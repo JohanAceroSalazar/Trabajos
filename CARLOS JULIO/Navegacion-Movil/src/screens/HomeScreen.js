@@ -3,20 +3,24 @@ import {
   Alert,
   Button,
   Modal,
+  Platform,
   Pressable,
-  SafeAreaView,
   ScrollView,
   Text,
   View,
 } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from '../styles/globalStyles';
+
+const opcionesPicker = ['React Native', 'Expo', 'Navegacion', 'Componentes'];
 
 function HomeScreen({ navigation }) {
   // useState guarda datos que pueden cambiar mientras la app esta abierta.
   // Cuando cambia un estado, React Native vuelve a pintar la parte necesaria de la pantalla.
   const [mensaje, setMensaje] = useState('Presiona un boton para cambiar este texto.');
   const [modalVisible, setModalVisible] = useState(false);
+  const [selectorVisible, setSelectorVisible] = useState(false);
   const [opcion, setOpcion] = useState('React Native');
 
   return (
@@ -81,16 +85,48 @@ function HomeScreen({ navigation }) {
           <Text style={styles.subtitle}>Parte 3 - Dropdown / Picker</Text>
           <Text style={styles.text}>Selecciona una opcion:</Text>
 
-          {/* Picker funciona como dropdown y es compatible con Android e iOS. */}
-          <View style={styles.pickerBox}>
-            {/* selectedValue es la opcion actual y onValueChange se ejecuta al escoger otra. */}
-            <Picker selectedValue={opcion} onValueChange={(valor) => setOpcion(valor)}>
-              <Picker.Item label="React Native" value="React Native" />
-              <Picker.Item label="Expo" value="Expo" />
-              <Picker.Item label="Navegacion" value="Navegacion" />
-              <Picker.Item label="Componentes" value="Componentes" />
-            </Picker>
-          </View>
+          {/* En Android se usa Picker normal. En iOS se muestra un modal para que se vea como dropdown. */}
+          {Platform.OS === 'ios' ? (
+            <>
+              <Pressable style={styles.selectButton} onPress={() => setSelectorVisible(true)}>
+                <Text style={styles.selectButtonText}>{opcion}</Text>
+              </Pressable>
+
+              <Modal visible={selectorVisible} transparent animationType="fade">
+                <View style={styles.modalBackground}>
+                  <View style={styles.modalBox}>
+                    <Text style={styles.subtitle}>Selecciona una opcion</Text>
+
+                    {opcionesPicker.map((item) => (
+                      <Pressable
+                        key={item}
+                        style={styles.optionButton}
+                        onPress={() => {
+                          setOpcion(item);
+                          setSelectorVisible(false);
+                        }}
+                      >
+                        <Text style={styles.optionText}>{item}</Text>
+                      </Pressable>
+                    ))}
+
+                    <Pressable style={styles.darkButton} onPress={() => setSelectorVisible(false)}>
+                      <Text style={styles.buttonText}>Cancelar</Text>
+                    </Pressable>
+                  </View>
+                </View>
+              </Modal>
+            </>
+          ) : (
+            <View style={styles.pickerBox}>
+              {/* selectedValue es la opcion actual y onValueChange se ejecuta al escoger otra. */}
+              <Picker selectedValue={opcion} onValueChange={(valor) => setOpcion(valor)}>
+                {opcionesPicker.map((item) => (
+                  <Picker.Item key={item} label={item} value={item} />
+                ))}
+              </Picker>
+            </View>
+          )}
 
           <Text style={styles.result}>Seleccionaste: {opcion}</Text>
         </View>
