@@ -15,10 +15,13 @@ Proyecto hecho en React Native con Expo para el taller del PDF.
 
 ```bash
 npm install
-npm start
+npm expo start
 ```
-
 Luego se puede abrir con Expo Go en el celular o en un emulador.
+
+## Arquitectura
+
+En este proyecto utilicé una arquitectura organizada por carpetas funcionales. Separé la navegación, las pantallas y los estilos para que el código fuera más fácil de entender, mantener y modificar. App.js solo carga la aplicación principal, navigation maneja los sistemas de navegación, screens contiene cada vista de la app y styles guarda los estilos reutilizables. Esta estructura ayuda a que el proyecto no quede todo en un solo archivo y sea más claro para trabajar.
 
 ## Explicacion corta para entregar
 
